@@ -1,22 +1,34 @@
+require("dotenv").config();
+
 const express = require("express");
-const credentials = require("./credentials.json");
 const puppeteer = require("puppeteer");
 
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    isLandscape: true,
     defaultViewport: null,
+    slowMo: 2,
   });
   const page = await browser.newPage();
 
-  //await page.goto("https://dev.simplista4sobeys.com/");
-  await page.goto("https://github.com/login");
+  await page.goto(process.env.URL, { waitUntil: "networkidle0" });
 
-  //await page.type("#login_field", process.env.GITHUB_USER);
-  //await page.type("#password", process.env.GITHUB_PWD);
+  await page.waitForSelector("#i0116");
+  await page.type("#i0116", process.env.LOGIN);
 
-  //await browser.close();
+  await page.waitForSelector("#idSIButton9");
+  await page.click("#idSIButton9");
 
-  console.log(process.env);
+  await page.waitForTimeout(1000);
+
+  await page.waitForSelector("#i0118", { visible: true });
+  await page.type("#i0118", process.env.PASSWORD);
+
+  await page.waitForSelector("#idSIButton9");
+  await page.click("#idSIButton9");
+
+  await page.waitForTimeout(1000);
+
+  await page.waitForSelector("#idSIButton9");
+  await page.click("#idSIButton9");
 })();
