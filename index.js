@@ -1,34 +1,26 @@
-require("dotenv").config();
-
 const express = require("express");
-const puppeteer = require("puppeteer");
+const login = require("./login/login.js");
+const { join } = require("path");
+const config = require("./config.json");
 
-(async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null,
-    slowMo: 2,
-  });
-  const page = await browser.newPage();
+const app = express();
 
-  await page.goto(process.env.URL, { waitUntil: "networkidle0" });
+app.use(express.static("login"));
 
-  await page.waitForSelector("#i0116");
-  await page.type("#i0116", process.env.LOGIN);
+app.get("/", (req, res) => {
+  const urls = Object.values(config.urls);
+  console.log(urls);
 
-  await page.waitForSelector("#idSIButton9");
-  await page.click("#idSIButton9");
+  const accounts = config.accounts;
+  console.log(accounts);
 
-  await page.waitForTimeout(1000);
+  const passwords = config.passwords;
+  console.log(passwords);
 
-  await page.waitForSelector("#i0118", { visible: true });
-  await page.type("#i0118", process.env.PASSWORD);
+  //login(urls[1], accounts[0], passwords[accounts[0]]);
+  const htmlPath = join(__dirname, "login", "login.html");
+  res.sendFile(htmlPath);
+});
 
-  await page.waitForSelector("#idSIButton9");
-  await page.click("#idSIButton9");
-
-  await page.waitForTimeout(1000);
-
-  await page.waitForSelector("#idSIButton9");
-  await page.click("#idSIButton9");
-})();
+const port = process.env.PORT;
+app.listen(port, () => console.log(`Login app running at ${port}`));
