@@ -9,15 +9,15 @@ app.use(express.static("login"));
 
 app.get("/", (req, res) => {
   const urls = Object.values(config.urls);
-  console.log(urls);
+  console.log(urls[1]);
 
   const accounts = config.accounts;
-  console.log(accounts);
+  console.log(accounts.Admin);
 
   const passwords = config.passwords;
-  console.log(passwords);
+  console.log(passwords.Admin);
 
-  //login(urls[1], accounts[0], passwords[accounts[0]]);
+  login(urls[1], accounts.Admin, passwords.Admin);
   const htmlPath = join(__dirname, "login", "login.html");
   res.sendFile(htmlPath);
 });
