@@ -20,12 +20,18 @@
             <br>
             <% } %>
         </fieldset>
+
+        <br>
         
     
         <% for(let account in accounts){ %>     
-          <button type="submit"><%= account %></button>
-          
+            <input type="radio" name="account" id="account" value="<%= account %>" checked>
+            <label for="account"><%= account %></label>          
         <% } %>
+
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="Sign In">
     </form>
 
     
