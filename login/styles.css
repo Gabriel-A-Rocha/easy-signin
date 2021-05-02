@@ -3,3 +3,7 @@ body {
   color: #5e5e5e;
   background-color: #e4e4e4;
 }
+
+fieldset {
+  display: block;
+}

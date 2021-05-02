@@ -2,24 +2,24 @@ const express = require("express");
 const login = require("./login/login.js");
 const { join } = require("path");
 const config = require("./config.json");
+const ejs = require("ejs");
 
 const app = express();
 
 app.use(express.static("login"));
 
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
   const urls = Object.values(config.urls);
-  console.log(urls[1]);
 
   const accounts = config.accounts;
-  console.log(accounts.Admin);
 
   const passwords = config.passwords;
-  console.log(passwords.Admin);
 
-  login(urls[1], accounts.Admin, passwords.Admin);
-  const htmlPath = join(__dirname, "login", "login.html");
-  res.sendFile(htmlPath);
+  //login(urls[1], accounts.Admin, passwords.Admin);
+  const htmlPath = join(__dirname, "login", "login.ejs");
+  res.render(htmlPath, { urls: urls, accounts: accounts });
 });
 
 const port = process.env.PORT;

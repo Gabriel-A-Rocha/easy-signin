@@ -9,10 +9,26 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Simplista SignIn</h1>
+    <h1>SignIn</h1>
 
-    <p>demo.simplista.com</p>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Environment:</legend>
+        <% for(let url of urls){ %>     
+            <input type="radio" name="url" id="env" value="<%= url %>" checked>
+            <label for="env"><%= url %></label>
+            <br>
+            <% } %>
+        </fieldset>
+        
+    
+        <% for(let account in accounts){ %>     
+          <button type="submit"><%= account %></button>
+          
+        <% } %>
+    </form>
 
+    
 
     
 </body>
