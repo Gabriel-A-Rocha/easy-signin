@@ -19,24 +19,24 @@
 
     <form action="/" method="post">
       <fieldset>
-        <legend>Environment:</legend>
-        <% for(let url of urls){ %>
-        <input type="radio" name="url" id="env" value="<%= url %>" checked/>
-        <label for="env"> <%= url %> </label>
-        <br />
+        <% for(let url in config){ %>
+        <legend><%= url %></legend>
+        
+        
+        
+          <% for(let account of config[url] ){ %>
+            <input type="radio" name="account" id="account" value="<%= account.name %>" checked/>
+            <label for="account"> <%= account.name %> </label><br />
+          <% } %>
+        
+          
+          <br />
         <% } %>
       </fieldset>
 
-      <br />
-
-      <% for(let account in accounts){ %>
-      <input type="radio" name="account" id="account" value="<%= account %>" checked/>
-      <label for="account"> <%= account %> </label>
-      <% } %>
-
-      <br />
-
       <input class="btn btn-primary" type="submit" value="Sign In" />
     </form>
+
+    <script src=""></script>
   </body>
 </html>
