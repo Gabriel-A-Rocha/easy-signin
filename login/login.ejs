@@ -23,19 +23,13 @@
         <legend><%= url %></legend>
         
           <% for(let [i,account] of config[url].entries() ){ %>
-           <!--  <input class="<%= url %>" type="radio" name="account" id="<%= account.name + i %>" value="<%= account.name %>" checked/>
-            <label for="<%= account.name + i %>"> <%= account.name %> </label><br /> -->
-                      
-            <input type="submit" class="btn btn-secondary" name="<%= url %>" value="<%= account.name %>">
-          <% } %>   
-          
+            <input type="submit" class="btn btn-outline-dark" name="<%= url %>" value="<%= account.name %>">
+          <% } %>             
           
           <hr>
         <% } %>
       </fieldset>
 
-
-      <input class="btn btn-primary" type="submit" value="Sign In" />
     </form>
 
     <script>

@@ -4,15 +4,14 @@ body {
   background-color: #e4e4e4;
 }
 
-input[type="btn"] {
-  margin-top: 30px;
-  width: 120px;
-}
-
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-input[class="btn-secondary"] {
-  width: 150px;
+legend {
+  font-size: 20px;
+}
+
+.btn {
+  margin: 7px 5px 5px 0px;
 }
