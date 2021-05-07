@@ -41,9 +41,9 @@ const automatedLogin = async (url, account, password) => {
     await page.click("#idSIButton9");
   } catch (error) {
     console.log(error);
-  } finally {
+  } /* finally {
     browser.close();
-  }
+  } */
 };
 
 module.exports = automatedLogin;

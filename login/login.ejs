@@ -22,21 +22,25 @@
         <% for(let url in config){ %>
         <legend><%= url %></legend>
         
-        
-        
-          <% for(let account of config[url] ){ %>
-            <input type="radio" name="account" id="account" value="<%= account.name %>" checked/>
-            <label for="account"> <%= account.name %> </label><br />
-          <% } %>
-        
+          <% for(let [i,account] of config[url].entries() ){ %>
+           <!--  <input class="<%= url %>" type="radio" name="account" id="<%= account.name + i %>" value="<%= account.name %>" checked/>
+            <label for="<%= account.name + i %>"> <%= account.name %> </label><br /> -->
+                      
+            <input type="submit" class="btn btn-secondary" name="<%= url %>" value="<%= account.name %>">
+          <% } %>   
           
-          <br />
+          
+          <hr>
         <% } %>
       </fieldset>
+
 
       <input class="btn btn-primary" type="submit" value="Sign In" />
     </form>
 
-    <script src=""></script>
+    <script>
+      const url = document.querySelector("input[name='chosenUrl']");
+    </script>
+    
   </body>
 </html>
