@@ -22,8 +22,14 @@
         <% for(let url in config){ %>
         <legend><%= url %></legend>
         
-          <% for(let [i,account] of config[url].entries() ){ %>
+          <% for(let [i, account] of config[url].entries() ){ %>
             <input type="submit" class="btn btn-outline-dark" name="<%= url %>" value="<%= account.name %>">
+            
+            <% const {GLN, GTIN} = account %>
+            <% if(GLN && GTIN){ %>
+              <p>GLN: <%= GLN %> / GTIN: <%= GTIN %></p>
+            <% } %>
+
           <% } %>             
           
           <hr>
