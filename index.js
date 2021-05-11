@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   const htmlPath = join(__dirname, "login", "login.ejs");
-  return res.render(htmlPath, { config: config });
+  return res.render(htmlPath, { file: config });
 });
 
 app.post("/", (req, res) => {
