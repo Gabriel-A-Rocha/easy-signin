@@ -18,29 +18,28 @@
     <h1>SignIn</h1>
 
     <form action="/" method="post">
-      <fieldset>
-        <% for(let url in file){ %>
-        <legend><%= url %></legend>
-        
-          <% for(let account of file[url] ){ %>
-            <input type="submit" class="btn btn-outline-dark" name="<%= url %>" value="<%= account.name %>">
-            
-            <% const {GLN, GTIN} = account %>
-            <% if(GLN && GTIN){ %>
-              <p>GLN: <%= GLN %> / GTIN: <%= GTIN %></p>
-            <% } %>
+      <% for(let url in file){ %>
 
-          <% } %>             
-          
-          <hr>
-        <% } %>
-      </fieldset>
+      <section>
+        <a href="<%= url %>" target="_blank"><%= url %></a>
 
+        <% for(let account of file[url] ){ %>
+        <input
+          type="submit"
+          class="btn btn-outline-dark"
+          name="<%= url %>"
+          value="<%= account.name %>"
+        />
+
+        <% const {GLN, GTIN} = account %> <% if(GLN && GTIN){ %>
+        <p class="gln">GLN: <span><%= GLN %></span></p>
+        <p class="gtin">GTIN: <span><%= GTIN %></span></p>
+        <% } %> <% } %>
+      </section>
+
+      <% } %>
     </form>
 
-    <script>
-      const url = document.querySelector("input[name='chosenUrl']");
-    </script>
-    
+    <script src="copyText.js"></script>
   </body>
 </html>
