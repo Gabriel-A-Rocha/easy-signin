@@ -5,9 +5,11 @@ const { join } = require("path");
 
 const homeDir = require("os").homedir();
 const desktopDir = join(homeDir, "Desktop");
-const configFilePath = join(desktopDir, "config.json");
+const signinFilePath = join(desktopDir, "signin.json");
 
-const config = require(configFilePath);
+const signin = require(signinFilePath);
+
+const open = require("open");
 
 const app = express();
 
@@ -18,14 +20,14 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   const htmlPath = join(__dirname, "login", "login.ejs");
-  return res.render(htmlPath, { file: config });
+  return res.render(htmlPath, { file: signin });
 });
 
 app.post("/", (req, res) => {
   const url = Object.keys(req.body)[0];
   const role = Object.values(req.body)[0];
 
-  const credentials = config[url].find((l) => l.name === role);
+  const credentials = signin[url].find((l) => l.name === role);
   const user = credentials.login;
   const password = credentials.password;
 
@@ -36,3 +38,7 @@ app.post("/", (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Login app running at ${port}`));
+
+open(`http://localhost:${port}`, {
+  app: { name: open.apps.chrome, arguments: ["--incognito"] },
+});
