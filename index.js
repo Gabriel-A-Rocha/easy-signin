@@ -29,5 +29,5 @@ app.post("/", (req, res) => {
   return res.redirect("/");
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Login app running at ${port}`));
