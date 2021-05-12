@@ -2,7 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const automatedLogin = require("./login/automatedLogin.js");
 const { join } = require("path");
-const config = require("./config.json");
+
+const homeDir = require("os").homedir();
+const desktopDir = join(homeDir, "Desktop");
+const configFilePath = join(desktopDir, "config.json");
+
+const config = require(configFilePath);
 
 const app = express();
 

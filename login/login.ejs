@@ -29,13 +29,13 @@
             <% if(GLN && GTIN){ %>
               <p class="gln">
                 GLN:
-                <span data-toggle="tooltip" data-placement="right" title="Click to copy">
+                <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
                   <%= GLN %>
                 </span>
               </p>
               <p class="gtin">
                 GTIN: <% for(const entry of GTIN){ %>
-                  <span data-toggle="tooltip" data-placement="auto" title="Click to copy" data-delay=750>
+                  <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
                     <%= entry %>
                   </span>
                   <% } %>
