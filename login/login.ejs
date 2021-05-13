@@ -23,25 +23,30 @@
         </a>
 
         <% for(let account of file[url] ){ %>
-          <input type="submit" class="btn btn-outline-dark" name="<%= url %>" value="<%= account.name %>" />
+          <div class="account">
+            <input type="submit" class="btn btn-outline-dark" name="<%= url %>" value="<%= account.name %>" />
 
-          <% const {GLN, GTIN}=account %>
-            <% if(GLN && GTIN){ %>
-              <p class="gln">
-                GLN:
-                <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
-                  <%= GLN %>
-                </span>
-              </p>
-              <p class="gtin">
-                GTIN: <% for(const entry of GTIN){ %>
-                  <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
-                    <%= entry %>
-                  </span>
+            <% const {GLN, GTIN}=account %>
+              <div class="details">
+                <% if(GLN && GTIN){ %>
+                  <p class="gln">
+                    GLN:
+                    <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
+                      <%= GLN %>
+                    </span>
+                  </p>
+                  <p class="gtin">
+                    GTIN: <% for(const entry of GTIN){ %>
+                      <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>
+                        <%= entry %>
+                      </span>
+                      <% } %>
+                  </p>
                   <% } %>
-              </p>
-              <% } %>
-                <% } %>
+              </div>
+          </div>
+          <% } %>
+
       </section>
 
       <% } %>
