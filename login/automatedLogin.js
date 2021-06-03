@@ -3,7 +3,6 @@ const puppeteer = require("puppeteer");
 const chromiumOptions = {
   headless: false,
   defaultViewport: null,
-  slowMo: 2,
 };
 
 const automatedLogin = async (url, account, password) => {
@@ -19,25 +18,17 @@ const automatedLogin = async (url, account, password) => {
 
     await page.waitForSelector("#i0116");
     await page.type("#i0116", account);
-
-    await page.waitForTimeout(1000);
-
     await page.waitForSelector("#idSIButton9");
     await page.click("#idSIButton9");
-
-    await page.waitForTimeout(1000);
 
     await page.waitForSelector("#i0118");
     await page.type("#i0118", password);
-
-    await page.waitForTimeout(1000);
-
     await page.waitForSelector("#idSIButton9");
+    await page.waitForTimeout(750);
     await page.click("#idSIButton9");
 
-    await page.waitForTimeout(1000);
-
     await page.waitForSelector("#idSIButton9");
+    await page.waitForTimeout(750);
     await page.click("#idSIButton9");
   } catch (error) {
     console.log(error);

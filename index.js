@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const automatedLogin = require("./login/automatedLogin.js");
 const { join } = require("path");
