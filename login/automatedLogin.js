@@ -13,7 +13,6 @@ const automatedLogin = async (url, account, password) => {
     const page = pages[0];
 
     await page.goto(url, { waitUntil: "networkidle0" });
-
     await page.bringToFront();
 
     await page.waitForSelector("#i0116");
@@ -24,11 +23,11 @@ const automatedLogin = async (url, account, password) => {
     await page.waitForSelector("#i0118");
     await page.type("#i0118", password);
     await page.waitForSelector("#idSIButton9");
-    await page.waitForTimeout(750);
+    await page.waitForTimeout(1000);
     await page.click("#idSIButton9");
 
     await page.waitForSelector("#idSIButton9");
-    await page.waitForTimeout(750);
+    await page.waitForTimeout(1000);
     await page.click("#idSIButton9");
   } catch (error) {
     console.log(error);
