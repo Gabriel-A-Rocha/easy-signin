@@ -2,3 +2,5 @@ node_modules
 credentials.json
 .env
 config.json
+signin.json
+credentials
