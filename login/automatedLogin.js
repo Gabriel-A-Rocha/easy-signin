@@ -1,12 +1,12 @@
 const puppeteer = require("puppeteer");
 
-const chromiumOptions = {
+const options = {
   headless: false,
   defaultViewport: null,
 };
 
 const automatedLogin = async (url, account, password) => {
-  const browser = await puppeteer.launch(chromiumOptions);
+  const browser = await puppeteer.launch(options);
 
   try {
     const pages = await browser.pages();
