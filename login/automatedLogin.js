@@ -1,8 +1,13 @@
+const { join } = require("path");
+
 const puppeteer = require("puppeteer");
 
 const options = {
   headless: false,
   defaultViewport: null,
+  devtools: true,
+  // executablePath: join("C:", "Program Files", "Firefox Nightly", "firefox.exe"),
+  args: ["--start-maximized", "--incognito"],
 };
 
 const automatedLogin = async (url, account, password) => {
