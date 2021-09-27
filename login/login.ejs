@@ -28,7 +28,7 @@
 
             <% const {GTIN}=account %>
               <div class="details">
-                <% if(GTIN){ %>
+                <% if(GTIN && GTIN.length>0){ %>
                   <p class="gtin">
                     GTIN: <% for(const entry of GTIN){ %>
                       <span data-toggle="tooltip" data-placement="right" title="Click to copy" data-delay=250>

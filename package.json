@@ -1,12 +1,12 @@
 {
   "name": "easy-signin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple app to ease the sign in process",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Gabriel Rocha",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

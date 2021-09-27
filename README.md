@@ -14,12 +14,12 @@ Node.js version 14+
 {
     "https://url.com": [
         {
-            "name": "account1",
+            "name": "Account 1",
             "login": "account1@company.com",
             "password": "account1pwd"
         },
         {
-            "name": "account2",
+            "name": "Account 2",
             "login": "account2@company.com",
             "password": "account2pwd"
         },
