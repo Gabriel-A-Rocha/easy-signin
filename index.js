@@ -2,10 +2,6 @@ const express = require("express");
 const automatedLogin = require("./login/automatedLogin.js");
 const { join } = require("path");
 
-/* const homeDir = require("os").homedir();
-const desktopDir = join(homeDir, "Desktop");
-const signinFilePath = join(desktopDir, "signin.json"); */
-
 const signin = require("./credentials/credentials.json");
 
 const open = require("open");
