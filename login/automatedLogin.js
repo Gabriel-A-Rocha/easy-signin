@@ -1,12 +1,9 @@
-const { join } = require("path");
-
 const puppeteer = require("puppeteer");
 
 const options = {
   headless: false,
   defaultViewport: null,
-  devtools: true,
-  // executablePath: join("C:", "Program Files", "Firefox Nightly", "firefox.exe"),
+  devtools: false,
   args: ["--start-maximized", "--incognito"],
 };
 
